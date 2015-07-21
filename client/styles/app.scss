@@ -1,5 +1,10 @@
+@import "../views/rpc/rpc";
+
 body {
     background: #f2f2f2;
+    font-family: 'Roboto','Helvetica','Arial',sans-serif;
+    line-height: 1,5;
+    font-weight: 300;
 }
 
 .center {
@@ -16,6 +21,20 @@ body {
 .list-item {
     border-bottom: 1px solid #e0e0e0;
     width: auto;
+    background: #fff;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease;
+
+
+    &:hover {
+      &:first-of-type {
+        margin-top: 0;
+      }
+      //transition: margin-top 1s ease
+      margin: 12px -12px;
+    }
 }
 
 .progressbar {
