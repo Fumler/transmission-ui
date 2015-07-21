@@ -1,17 +1,25 @@
-<div>
-  {{ vm.name }}
-</div>
+<div class="mdl-grid">
 
-<form ng-submit="vm.login()">
-  <input type="email"
-         ng-model="vm.user.email"
-         placeholder="email">
-  <input type="password"
-         ng-model="vm.user.password"
-         placeholder="password">
-  <button type="submit">
-    login
-  </button>
+<form ng-submit="vm.login()" action="#">
+  	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    	<input class="mdl-textfield__input" type="email" id="email" ng-model="vm.user.email" />
+    	<label class="mdl-textfield__label" for="email">Email...</label>
+  	</div>
+	<br>
+  	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    	<input class="mdl-textfield__input" type="password" id="password" ng-model="vm.user.password" />
+    	<label class="mdl-textfield__label" for="email">Password...</label>
+  	</div>
+	<br>
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+		login
+	</button>	
 </form>
 
+
+
+
 <pre ng-if="vm.error">{{ vm.error | json }}</pre>
+
+
+</div>
