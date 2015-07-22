@@ -1,0 +1,49 @@
+.mdl-layout__drawer-button {
+	opacity: 0;
+	display: none;
+}
+
+
+.mdl-layout__header .material-menu-wrapper {
+	position: absolute;
+}
+.material-menu-wrapper {
+	height: 48px;
+	width: 48px;
+	overflow: hidden;
+	cursor: pointer;
+	margin: 24px 24px;
+	z-index: 4;
+}
+
+.material-menu {
+	transition: all .3s ease-out;
+	
+	.material-line {
+		will-change: transform, opacity;
+		width: 18px;
+		height: 2px;
+		margin: 0 0 3px 0;
+		background: #fff;
+		opacity: 1;
+		transform: translate(0) rotate(0deg);
+		transition: all .2s ease-out;
+	
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&.material-close {
+		transform: rotate(-180deg);
+	
+		.material-line:nth-child(1) {
+			transform: translate(-10px, 4px) rotate(-45deg) scale(0.5, 1);
+		}
+	
+		.material-line:nth-child(3) {
+			transform: translate(-10px, -4px) rotate(45deg) scale(0.5, 1);
+		}
+	}
+}
+
