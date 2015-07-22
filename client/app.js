@@ -41,15 +41,10 @@ angular.module('transmissionUi', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth, $timeout) {
+  .run(function ($rootScope, $location, Auth) {
 
     $rootScope.Auth = Auth;
-	
-	$rootScope.$on('$viewContentLoaded', function() {
-		$timeout(function() {
-			componentHandler.upgradeAllRegistered();
-		});
-	});
+
     $rootScope.$on('$routeChangeStart', function (event, next) {
       Auth.isReadyLogged().catch(function () {
         if (next.authenticate) {

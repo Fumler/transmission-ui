@@ -11,7 +11,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.red-blue.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- build:css app.css -->
@@ -25,58 +24,22 @@
 
 </head>
 
-<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<body>
 
 
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
-    <header class="mdl-layout__header">
-		<div class="material-menu-wrapper">
-		  <div class="material-menu">
-		  <div class="material-line"></div>
-		  <div class="material-line"></div>
-		  <div class="material-line"></div>
-		  </div>
-			 </div>
-      <div class="mdl-layout__header-row">
-		 
-        <!-- Title -->
-        <span class="mdl-layout-title">Torrents</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                    mdl-textfield--floating-label mdl-textfield--align-right">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" />
-          </div>
-        </div>
-      </div>
+    <header>
+      <navbar></navbar>
     </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Torrents</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="/">Home</a>
+
+        <!-- <a class="mdl-navigation__link" href="/">Home</a>
         <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/signup">Sign Up</a>
         <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/login">Login</a>
-        <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="" ng-click="Auth.logout()">Logout</a>
-      </nav>
-    </div>
-    <main class="mdl-layout__content">
+        <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="" ng-click="Auth.logout()">Logout</a> -->
+
       <div ng-view></div>
     </main>
-    <!-- Colored FAB button -->
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">
-      <i class="material-icons">add</i>
-    </button>
-  </div>
 
-
-
-  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
   <!-- build:js app.js -->
 
   <!-- bower:js -->
@@ -87,15 +50,16 @@
 
   <!-- inject:js -->
   <script src="app.js"></script>
-  <script src="views/signup/signup.js"></script>
-  <script src="views/signup/signup.controller.js"></script>
-  <script src="views/rpc/rpc.js"></script>
-  <script src="views/rpc/rpc.controller.js"></script>
-  <script src="views/login/login.js"></script>
-  <script src="views/login/login.controller.js"></script>
-  <script src="views/home/home.js"></script>
-  <script src="views/home/home.controller.js"></script>
+  <script src="directives/navbar/navbar.directive.js"></script>
   <script src="services/auth/auth.js"></script>
+  <script src="views/home/home.controller.js"></script>
+  <script src="views/home/home.js"></script>
+  <script src="views/login/login.controller.js"></script>
+  <script src="views/login/login.js"></script>
+  <script src="views/rpc/rpc.controller.js"></script>
+  <script src="views/rpc/rpc.js"></script>
+  <script src="views/signup/signup.controller.js"></script>
+  <script src="views/signup/signup.js"></script>
   <!-- endinject -->
 
   <!-- endbuild -->

@@ -1,50 +1,138 @@
 @import "../views/rpc/rpc";
 @import "material.scss";
-
+@import "materialize.scss";
+html {
+  background: #f2f2f2;
+  color: #212121;
+  font-size: 62.5%;
+}
 body {
-    background: #f2f2f2;
-    font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+}
+h1 {
 
 }
-
+h2 {
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1.3333;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    margin: 2.4em 0 1.6em;
+}
 .center {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-
 .subheader {
-    color: #999;
-    margin-bottom: 0;
-    margin-left: 25px;
+  color: #999;
+  padding: 20px 0 12px 25px;
 }
-
 
 .list-item {
-	box-shadow: 0 1px 2px rgba(0,0,0,.12);
-    background: #fff;
-	cursor: pointer;
-    transition-delay: 0s;
-    transition-duration: 0.2s;
-    transition-property: all;
-    transition-timing-function: ease;
-	overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  outline: none;
+  background: #fff;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-timing-function: ease;
+  overflow: hidden;
+  margin-bottom: 1px;
 
-
+  &:first-child {
     &:hover {
-      &:first-of-type {
-        margin-top: 0;
-      }
-      //transition: margin-top 1s ease
-      margin: 12px -12px;
-	  box-shadow: 0 4px 4px rgba(0,0,0,.12);
+      margin-top: 0px;
     }
+  }
+  &.active {
+    box-shadow: 0 8px 8px rgba(0, 0, 0, .12);
+    margin: 24px -24px;
+    position: relative;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &:hover {
+    &:not(.active) {
+      margin: 12px -12px;
+      box-shadow: 0 4px 4px rgba(0,0,0,.12);
+    }
+  }
+  header {
+    padding: 24px;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+
+    h2 {
+      margin: 0;
+      transition: .2s;
+
+
+    }
+  }
+  &.active header {
+    border-bottom: 1px solid #e0e0e0;
+    min-height: 100px;
+    padding: 24px 24px 10px;
+    h2 {
+      font-size: 30px;
+      font-size: 3rem;
+
+
+    }
+  }
+  &:not(.active) header {
+    h2 {
+      font-size: 16px;
+      font-size: 1.6rem;
+    }
+  }
+}
+.active .list-item-info {
+  height: 0px;
+  margin: 0;
+  opacity: 0;
+}
+.list-item-info {
+  margin: -48px 0 24px;
+  text-align: left;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #999;
+  margin: -24px 0 24px;
+  opacity: 1;
+  overflow: hidden;
+  padding: 0 24px;
+  position: relative;
+  transition: .2s;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &>li {
+      display: inline-block;
+    }
+  }
+  li+li:before {
+    content: '·';
+    display: inline-block;
+    margin: 0 .6em;
+  }
 }
 
 .progressbar {
-    width: auto;
+  width: auto;
 }
-
 .cell-margin-bottom-20 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
