@@ -7,7 +7,8 @@ angular.module('transmissionUi')
       replace: true,
       transclude: true,
       scope: {
-        active: '='
+        active: '=',
+        isActive: '='
       },
       template: '<div ng-click="active = $id;" ng-class="{active: $id === active}" ng-transclude></div>'
     };

@@ -44,36 +44,42 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   margin-bottom: 1px;
 
-  &:first-child {
-    &:hover {
-      margin-top: 0px;
-    }
-  }
   &.active {
     box-shadow: 0 8px 8px rgba(0, 0, 0, .12);
-    margin: 24px -24px;
+    margin: 24px 0;
     position: relative;
+    z-index: 50;
+
+    @media only screen and (min-width: 928px) {
+      margin: 24px -24px;
+    }
     &:first-child {
       margin-top: 0;
     }
-  }
-
-  &:hover {
-    &:not(.active) {
-      margin: 12px -12px;
-      box-shadow: 0 4px 4px rgba(0,0,0,.12);
+    &:last-child {
+      margin-bottom: 0;
     }
   }
+
   header {
     padding: 24px;
     position: relative;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
+    z-index: 52;
+    @media only screen and (min-width: 928px) {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+    }
 
     h2 {
       margin: 0;
       transition: .2s;
-
+    @media only screen and (min-width: 928px) {
+      position: relative;
+    }
 
     }
   }
@@ -94,15 +100,37 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 1.6rem;
     }
   }
+  .actions {
+    margin: 16px 0;
+    &>:first-child {
+      margin-top: 0;
+    }
+    &>:last-child {
+      margin-bottom: 0px;
+    }
+    p {
+      margin: .2em 0;
+    }
+    @media only screen and (min-width: 928px) {
+      margin: 0;
+      text-align: center;
+    }
+  }
 }
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.shaded { opacity: 0.3; }
+
+
 .active .list-item-info {
-  height: 0px;
+  height: 0;
   margin: 0;
   opacity: 0;
 }
 .list-item-info {
-  margin: -48px 0 24px;
-  text-align: left;
   font-size: 12px;
   font-size: 1.2rem;
   line-height: 2;
@@ -112,21 +140,60 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   padding: 0 24px;
   position: relative;
+  text-align: center;
   transition: .2s;
+  z-index: 51;
+
+  @media only screen and (min-width: 928px) {
+    margin: -48px 0 24px;
+    text-align: left;
+  }
 
   ul {
     list-style: none;
     margin: 0;
-    padding: 0;
 
-    &>li {
-      display: inline-block;
+    @media only screen and (min-width: 928px) {
+      &>li {
+        display: inline-block;
+      }
+    }
+
+  }
+  li {
+    display: inline-block;
+    &+li {
+      margin: 0 0 0 1em;
+      @media only screen and (min-width: 928px) {
+        margin: 0;
+        &:before {
+          content: '·';
+          display: inline-block;
+          margin: 0 .6em;
+        }
+      }
     }
   }
-  li+li:before {
-    content: '·';
-    display: inline-block;
-    margin: 0 .6em;
+}
+
+.list-item-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: .3s;
+}
+.active  > .list-item-details {
+  max-height: 4000px;
+  opacity: 1;
+}
+
+.list-item-table {
+  padding: 0 24px 24px;
+  margin: 40px 0 0;
+  text-align: center;
+  @media only screen and (min-width: 928px) {
+    text-align: left;
   }
 }
 
