@@ -27,15 +27,6 @@ RpcSchema
 
   RpcSchema.methods = {
 
-    /**
-    * Authenticate
-    *
-    * @param {String} password
-    * @return {Boolean}
-    */
-    authenticate: function(password) {
-      return this.encryptPassword(password) === this.passwordHash;
-    },
 
     /**
      * Make salt

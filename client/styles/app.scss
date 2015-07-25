@@ -44,14 +44,18 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   margin-bottom: 1px;
 
+  &:hover .material-icons.shaded {
+    display: inline-block;
+  }
+
   &.active {
     box-shadow: 0 8px 8px rgba(0, 0, 0, .12);
-    margin: 24px 0;
+    margin: 12px 0;
     position: relative;
     z-index: 50;
 
     @media only screen and (min-width: 928px) {
-      margin: 24px -24px;
+      margin: 12px -24px;
     }
     &:first-child {
       margin-top: 0;
@@ -62,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   header {
-    padding: 24px;
+    padding: 12px 24px;
     position: relative;
     text-align: center;
     cursor: pointer;
@@ -85,8 +89,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   &.active header {
     border-bottom: 1px solid #e0e0e0;
-    min-height: 100px;
-    padding: 24px 24px 10px;
+    min-height: 24px;
+    padding: 12px 24px 10px;
     h2 {
       font-size: 30px;
       font-size: 3rem;
@@ -96,12 +100,15 @@ h1, h2, h3, h4, h5, h6 {
   }
   &:not(.active) header {
     h2 {
-      font-size: 16px;
-      font-size: 1.6rem;
+      font-size: 14px;
+      font-size: 1.4rem;
     }
   }
   .actions {
     margin: 16px 0;
+    position: absolute;
+    top: 12px;
+    right: 24px;
     &>:first-child {
       margin-top: 0;
     }
@@ -113,16 +120,32 @@ h1, h2, h3, h4, h5, h6 {
     }
     @media only screen and (min-width: 928px) {
       margin: 0;
-      text-align: center;
+      text-align: right;
     }
   }
 }
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.shaded { opacity: 0.3; }
+.material-icons {
+  transition: .2s;
+  &.md-18 {
+    font-size: 18px;
+  }
+  &.md-24 {
+    font-size: 24px;
+  }
+  &.md-36 {
+    font-size: 36px;
+  }
+  &.md-48 {
+    font-size: 48px;
+  }
+  &.shaded {
+    opacity: 0.3;
+    display: none;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
 
 
 .active .list-item-info {
@@ -135,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
   line-height: 2;
   color: #999;
-  margin: -24px 0 24px;
+  margin: -12px 0 12px;
   opacity: 1;
   overflow: hidden;
   padding: 0 24px;
@@ -145,7 +168,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 51;
 
   @media only screen and (min-width: 928px) {
-    margin: -48px 0 24px;
     text-align: left;
   }
 
