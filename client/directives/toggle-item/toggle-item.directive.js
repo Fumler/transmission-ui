@@ -1,15 +1,21 @@
 'use strict';
 
 angular.module('transmissionUi')
-  .directive('toggleItem', function () {
+  .directive('toggleItem', function() {
     return {
-      restrict: 'EA',
-      replace: true,
-      transclude: true,
-      scope: {
-        active: '=',
-        isActive: '='
-      },
-      template: '<div ng-click="active = $id;" ng-class="{active: $id === active}" ng-transclude></div>'
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        element.bind('click', function() {
+          var elems = element.parent().parent().children().children();
+
+
+          if (element.hasClass('active') === true) {
+            element.removeClass('active');
+          } else {
+            elems.removeClass('active');
+            element.addClass('active');
+        }
+        });
+      }
     };
   });
