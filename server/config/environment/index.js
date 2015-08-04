@@ -9,13 +9,6 @@ var all = {
   root: path.normalize(__dirname + '/../../..'),
   port: process.env.PORT || 9000,
 
-  mongo: {
-    options: {
-      db: {
-        safe: true
-      }
-    }
-  },
 
   secrets: {
     session: process.env.SESSION_SECRET || 'secretKey'

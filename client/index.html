@@ -16,6 +16,7 @@
   <!-- build:css app.css -->
 
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
   <!-- endinject -->
 
   <link rel="stylesheet" href="styles/css/app.css">
@@ -25,42 +26,56 @@
 </head>
 
 <body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Transmission UI</span>
+      <div class="mdl-layout-spacer"></div>
+      <!-- top nav links here -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="/">Home</a>
+      <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/signup">Sign Up</a>
+      <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/login">Login</a>
+      <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="/rpc">Servers</a>
+      <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="" ng-click="Auth.logout()">Logout</a>
+    </nav>
+  </div>
 
-
-    <header>
-      <navbar></navbar>
-    </header>
-
-        <!-- <a class="mdl-navigation__link" href="/">Home</a>
-        <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/signup">Sign Up</a>
-        <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/login">Login</a>
-        <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="" ng-click="Auth.logout()">Logout</a> -->
-
+  <main class="mdl-layout__content">
+    <div class="page-content">
       <div ng-view></div>
-    </main>
+    </div>
+  </main>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+
+
+
+
+
   <!-- build:js app.js -->
 
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/material-design-lite/material.min.js"></script>
   <!-- endinject -->
 
   <!-- inject:js -->
   <script src="app.js"></script>
-  <script src="views/signup/signup.js"></script>
-  <script src="views/signup/signup.controller.js"></script>
-  <script src="views/rpc/rpc.js"></script>
-  <script src="views/rpc/rpc.controller.js"></script>
-  <script src="views/login/login.js"></script>
-  <script src="views/login/login.controller.js"></script>
-  <script src="views/home/home.js"></script>
-  <script src="views/home/home.controller.js"></script>
-  <script src="services/auth/auth.js"></script>
   <script src="directives/toggle-item/toggle-item.directive.js"></script>
-  <script src="directives/navbar/navbar.directive.js"></script>
+  <script src="views/home/home.controller.js"></script>
+  <script src="views/home/home.js"></script>
+  <script src="views/rpc/rpc.controller.js"></script>
+  <script src="views/rpc/rpc.js"></script>
   <!-- endinject -->
 
   <!-- endbuild -->

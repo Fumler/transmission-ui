@@ -1,39 +1,43 @@
 <div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
+  <div class="mdl-cell mdl-cell--3-col">
 
 
-  <div class="mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class=" mdl-cell mdl-cell--4-col">
+    <!-- Textfield with Floating Label -->
+    <div class="list-item">
 
-    <div ng-if="Auth.isLogged()">
-      <div class="mdl-cell mdl-cell--12-col subheader">
-        Transmission RPC Servers - LEARNING RESOURCE http://www.google.com/get/noto/
+      <div class="mdl-cell mdl-cell--12-col">
+        <form ng-submit="vm.addrpc()" action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="url" ng-model="vm.rpc.url" />
+            <label class="mdl-textfield__label" for="url">URL... (e.g. http://localhost)</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="number" id="port" ng-model="vm.rpc.port" />
+            <label class="mdl-textfield__label" for="port">Port... (e.g. 9091)</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="rpcUrl ng-model="vm.rpc.rpcUrl"" />
+            <label class="mdl-textfield__label" for="rpcUrl">RPC URL... (e.g. transmission)</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="username" ng-model="vm.rpc.username" />
+            <label class="mdl-textfield__label" for="username">Username...</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="password" ng-model="vm.rpc.password" />
+            <label class="mdl-textfield__label" for="password">Password...</label>
+          </div>
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Save
+          </button>
+        </form>
+        <button class="float-right mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Test Connection
+        </button>
+
       </div>
 
-      <div class="mdl-cell mdl-cell--12-col mdl-color-text--grey-800  cell-margin-bottom-20">
-
-        <div class="mdl-card__supporting-text list-item mdl-color--white mdl-shadow--2dp">
-          Basketak-srv
-        </div>
-        <div class="mdl-card__supporting-text list-item mdl-color--white mdl-shadow--2dp">
-          Basktetak-mac
-        </div>
-        <div class="mdl-card__supporting-text list-item mdl-color--white mdl-shadow--2dp">
-          Basktetak-mac
-        </div>
-        <div class="mdl-card__supporting-text list-item mdl-color--white mdl-shadow--2dp">
-          Basktetak-mac
-        </div>
-        <div class="mdl-card__supporting-text list-item mdl-color--white mdl-shadow--2dp">
-          Basktetak-mac
-        </div>
-
-      </div>
-
-
-    </div>
-    <div ng-if="!Auth.isLogged()">
-      <div class="mdl-cell mdl-cell--12-col subheader">
-        You have not added any servers :(
-      </div>
     </div>
   </div>
+</div>
