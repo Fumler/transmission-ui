@@ -40,11 +40,8 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Title</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="/">Home</a>
-      <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/signup">Sign Up</a>
-      <a ng-if="!Auth.isLogged()" class="mdl-navigation__link" href="/login">Login</a>
-      <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="/rpc">Servers</a>
-      <a ng-if="Auth.isLogged()" class="mdl-navigation__link" href="" ng-click="Auth.logout()">Logout</a>
+      <a class="mdl-navigation__link" href="/">Torrents</a>
+      <a class="mdl-navigation__link" href="/rpc">Server settings</a>
     </nav>
   </div>
 
@@ -71,11 +68,11 @@
 
   <!-- inject:js -->
   <script src="app.js"></script>
-  <script src="directives/toggle-item/toggle-item.directive.js"></script>
-  <script src="views/home/home.controller.js"></script>
-  <script src="views/home/home.js"></script>
-  <script src="views/rpc/rpc.controller.js"></script>
   <script src="views/rpc/rpc.js"></script>
+  <script src="views/rpc/rpc.controller.js"></script>
+  <script src="views/home/home.js"></script>
+  <script src="views/home/home.controller.js"></script>
+  <script src="directives/toggle-item/toggle-item.directive.js"></script>
   <!-- endinject -->
 
   <!-- endbuild -->
