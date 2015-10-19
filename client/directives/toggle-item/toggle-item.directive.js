@@ -7,10 +7,10 @@ angular.module('transmissionUi')
       link: function(scope, element, attrs) {
         element.bind('click', function() {
           var elems = element.parent().parent().children().children();
+          var mainEle = element;
 
 
           if (element.hasClass('active') === true) {
-            element.removeClass('active');
           } else {
             elems.removeClass('active');
             element.addClass('active');

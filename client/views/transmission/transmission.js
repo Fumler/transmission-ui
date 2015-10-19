@@ -3,9 +3,9 @@
 angular.module('transmissionUi')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/rpc', {
-        templateUrl: 'views/rpc/rpc.html',
-        controller: 'RpcCtrl',
+      .when('/transmission', {
+        templateUrl: 'views/transmission/transmission.html',
+        controller: 'TransmissionCtrl',
         controllerAs: 'vm'
       });
   });

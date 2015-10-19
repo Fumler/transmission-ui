@@ -21,6 +21,7 @@ exports.connect = function (req, res) {
   } else {
     handleError(res, 'could not connect, missing host and port');
   }
+  console.log(res);
   return res.status(200).json('Connected to transmission!');
 };
 

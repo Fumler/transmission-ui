@@ -59,7 +59,7 @@
 
 
 
-      <div toggle-item="active" class="list-item" ng-repeat="torrent in vm.torrents track by torrent.id">
+      <div toggle-item="active" class="list-item" ng-repeat="torrent in vm.torrents | orderBy: '-addedDate' track by torrent.id">
           <header>
             <h2>{{ torrent.name }}</h2>
             <div class="actions">
@@ -68,9 +68,9 @@
           </header>
           <div class="list-item-info">
             <ul>
-              <li>2.4GB</li>
-              <li>14 seeders</li>
-              <li>108 leechers</li>
+              <li>{{ torrent.sizeWhenDone | bytes:1}} </li>
+              <li>{{ torrent.addedDate * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' }} added</li>
+              <li>{{ torrent.leechers }} leechers</li>
             </ul>
           </div>
           <div class="list-item-details">

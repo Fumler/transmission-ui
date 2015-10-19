@@ -9,28 +9,28 @@
       <div class="mdl-cell mdl-cell--12-col">
         <form ng-submit="vm.submit()">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="host" ng-model="vm.rpc.host" required/>
+            <input class="mdl-textfield__input" type="text" id="host" ng-model="vm.transmissionSettings.host" required/>
             <label class="mdl-textfield__label" for="url">Host... (e.g. localhost)</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="number" id="port" ng-model="vm.rpc.port" required/>
+            <input class="mdl-textfield__input" type="number" id="port" ng-model="vm.transmissionSettings.port" required/>
             <label class="mdl-textfield__label" for="port">Port... (e.g. 9091)</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="url" ng-model="vm.rpc.url" />
-            <label class="mdl-textfield__label" for="rpcUrl">RPC URL... (e.g. /transmission/rpc)</label>
+            <input class="mdl-textfield__input" type="text" id="url" ng-model="vm.transmissionSettings.url" />
+            <label class="mdl-textfield__label" for="url">RPC URL... (e.g. /transmission/rpc)</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="username" ng-model="vm.rpc.username" />
+            <input class="mdl-textfield__input" type="text" id="username" ng-model="vm.transmissionSettings.username" />
             <label class="mdl-textfield__label" for="username">Username...</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="password" id="password" ng-model="vm.rpc.password" />
+            <input class="mdl-textfield__input" type="password" id="password" ng-model="vm.transmissionSettings.password" />
             <label class="mdl-textfield__label" for="password">Password...</label>
           </div>
           <br>
           <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-          Connect
+          Save
           </button>
 
         </form>
