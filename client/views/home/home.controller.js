@@ -32,6 +32,7 @@ angular.module('transmissionUi')
           });
 
 
+
         angular.extend(vm, {
           torrents: torrents,
 

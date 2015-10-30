@@ -29,12 +29,8 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Transmission UI</span>
-      <div class="mdl-layout-spacer"></div>
-      <!-- top nav links here -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
+      <span class="mdl-layout-title">Torrents</span>
+      <search-bar></search-bar>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -68,6 +64,8 @@
 
   <!-- inject:js -->
   <script src="app.js"></script>
+  <script src="directives/progress-bar/progress-bar.directive.js"></script>
+  <script src="directives/search-bar/search-bar.directive.js"></script>
   <script src="directives/toggle-item/toggle-item.directive.js"></script>
   <script src="filters/bytes/bytes.js"></script>
   <script src="views/home/home.controller.js"></script>

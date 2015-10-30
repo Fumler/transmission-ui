@@ -1,4 +1,7 @@
+@import "../directives/search-bar/search-bar";
+@import "../directives/progress-bar/progress-bar";
 @import "material.scss";
+
 
 
 html {
@@ -139,7 +142,10 @@ nav .brand-logo {
   }
 }
 .material-icons {
-  transition: .2s;
+  transition-delay: 0s;
+  transition-duration: 0.3;
+  transition-property: all;
+  transition-timing-function: ease;
   &.md-18 {
     font-size: 18px;
   }
@@ -158,6 +164,12 @@ nav .brand-logo {
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+.mdl-layout-title {
+  @media (max-width: 1024px) {
+    display: none;
   }
 }
 
@@ -188,6 +200,7 @@ nav .brand-logo {
   ul {
     list-style: none;
     margin: 0;
+    padding: 0;
 
     @media only screen and (min-width: 928px) {
       &>li {

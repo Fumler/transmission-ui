@@ -41,7 +41,10 @@ exports.getAll = function(req, res) {
 };
 
 exports.get = function(req, res) {
-  var id = req.params.id;
+  var id = [];
+  id = id.push(req.params.id);
+
+  console.log('req.params.id ' + id[0]);
   transmission.get(id, function(err, result) {
     if (err) {
       handleError(res, err);

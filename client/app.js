@@ -20,6 +20,8 @@ angular.module('transmissionUi', [
   $rootScope.$on('$viewContentLoaded', function() {
     $timeout(function() {
       componentHandler.upgradeAllRegistered();
+      componentHandler.upgradeDom();
     });
   });
+
 });

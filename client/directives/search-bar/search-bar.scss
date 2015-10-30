@@ -1,0 +1,104 @@
+@mixin placeholder($color, $size:"") {
+  &::-webkit-input-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+  &:-moz-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+  &::-moz-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    @if $size != "" {
+      font-size: $size;
+    }
+  }
+}
+
+
+search-bar {
+  background: rgba(255, 255, 255, 0.15);
+  position: fixed;
+  left: 16.66%;
+  margin: 14px 8px;
+  width: calc(63.7%);
+  border-radius: 2px;
+  height: 36px;
+
+  @media screen and (max-width: 1024px) {
+    margin: 10px 8px;
+  }
+
+  @media screen and (max-width: 839px) {
+    margin: 10px 8px;
+    width: 88%;
+    left: 48px;
+  }
+
+
+  .search-icon {
+    display: inline-block;
+    position: relative;
+    width: 72px;
+    height: 36px;
+
+
+    > i {
+      height: 24px;
+      left: 24px;
+      position: absolute;
+      top: 6px;
+      width: 24px;
+    }
+  }
+
+  > input {
+    background: none;
+    font-size: 1.2em;
+    color: #fff;
+    padding-right: 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    position: fixed;
+    width: calc(63.7% - 72px);
+    height: 36px;
+    margin: 0;
+    @include placeholder(white);
+    transition-delay: 0s;
+    transition-duration: 0.3;
+    transition-property: all;
+    transition-timing-function: ease;
+
+    @media screen and (max-width: 839px) {
+      width: calc(88% - 72px);
+    }
+
+    &:focus {
+      color: #000;
+      @include placeholder(grey);
+      transition-delay: 0s;
+      transition-duration: 0.3;
+      transition-property: all;
+      transition-timing-function: ease;
+    }
+  }
+
+}
+
+.mdl-layout__header {
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-property: all;
+  transition-timing-function: ease;
+}

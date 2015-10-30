@@ -6,14 +6,14 @@ angular.module('transmissionUi')
       restrict: 'A',
       link: function(scope, element, attrs) {
         element.bind('click', function() {
-          var elems = element.parent().parent().children().children();
-          var mainEle = element;
+          var elem = element.parent();
+          var elems = elem.parent().parent().children().children();
 
-
-          if (element.hasClass('active') === true) {
+          if (elem.hasClass('active') === true) {
+            elem.removeClass('active');
           } else {
             elems.removeClass('active');
-            element.addClass('active');
+            elem.addClass('active');
         }
         });
       }
