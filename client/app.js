@@ -2,7 +2,8 @@
 
 angular.module('transmissionUi', [
     'ngRoute',
-    'ngCookies'
+    'ngCookies',
+    'ngAnimate'
   ])
   .config(function($routeProvider, $locationProvider, $httpProvider) {
 
@@ -11,7 +12,9 @@ angular.module('transmissionUi', [
         redirectTo: '/'
       });
 
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+      enabled: false,
+    });
 
   })
 
@@ -24,4 +27,7 @@ angular.module('transmissionUi', [
     });
   });
 
+})
+.controller('BodyCtrl', function($scope, $timeout, Alerts) {
+  $scope.alerts = Alerts.get();
 });

@@ -2,6 +2,6 @@
 
 1. bower install
 2. npm install
+3. npm install -g electron-prebuilt gulp
 3. gulp
-
-http://localhost:9000
+4. electron .

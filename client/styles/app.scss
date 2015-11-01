@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     margin: 2.4em 0 1.6em;
 }
+
+#topLoad {
+  width: 100%;
+}
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -39,6 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 .float-right {
   float: right;
 }
+// HOME
 
 .list-item {
   box-shadow: 0 1px 2px rgba(0,0,0,.12);
@@ -50,6 +55,10 @@ h1, h2, h3, h4, h5, h6 {
   transition-timing-function: ease;
   overflow: hidden;
   margin-bottom: 1px;
+
+  &:last-child {
+    margin-bottom: 30px;
+  }
 
   form {
     text-align: center;
@@ -251,4 +260,116 @@ nav .brand-logo {
 }
 .cell-margin-bottom-20 {
   margin-bottom: 20px;
+}
+
+.fade-in {
+  opacity: 1;
+
+  &.ng-enter {
+    transition: 0.5s ease all;
+    opacity: 0;
+
+    &.ng-enter-active {
+      opacity: 1;
+    }
+  }
+}
+
+.fade-in-out {
+  opacity: 1;
+
+  &.ng-enter {
+    transition: 0.5s ease all;
+    opacity: 0;
+
+    &.ng-enter-active {
+      opacity: 1;
+    }
+  }
+  &.ng-leave {
+    transition: 0.5s ease all;
+    opacity: 1;
+
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+
+// SETTINGS
+.mdl-cell.mdl-cell--4-col {
+  > h1 {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 15px;
+  }
+}
+
+.mdl-textfield {
+  width: 80%;
+  &:first-child {
+    margin-top: 20px;
+  }
+}
+
+.mdl-button {
+  width: 81%;
+  margin: 15px;
+}
+
+// ALERT BOX
+.alert {
+  width: 100%;
+  max-height: 50px;
+  opacity: 1;
+  z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.ng-enter {
+    transition: 0.5s ease all;
+    max-height: 0px;
+    opacity: 0;
+
+    &.ng-enter-active {
+      max-height: 50px;
+      opacity: 1;
+    }
+  }
+  &.ng-leave {
+    transition: 0.5s ease all;
+
+    &.ng-leave-active {
+      max-height: 0px;
+      opacity: 0;
+    }
+  }
+
+}
+
+.info, .success, .warning, .danger {
+  padding: 12px;
+  font-size: 1.1em;
+  margin: 0 auto;
+  bottom: 60px;
+
+  background: rgba(255, 255, 255, .6);
+  font-size: 1.1em;
+  border-radius: 2px;
+  text-align: center;
+
+}
+.info {
+  color: #039BE5;
+}
+.success {
+  color: #64DD17;
+}
+.warning {
+  color: #FFB300;
+}
+.danger {
+  color: #F44336;
 }

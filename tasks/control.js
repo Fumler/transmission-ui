@@ -38,7 +38,6 @@ module.exports = function (done) {
 
   async.series([
     control(['client/**/*.js', '!client/bower_components/**'], getConfig('./client/.jshintrc')),
-    control(['server/**/*.js'], getConfig('./server/.jshintrc')),
     control(['gulpfile.js', 'tasks/**/*.js'], getConfig('./server/.jshintrc'))
   ], done);
 

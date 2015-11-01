@@ -1,18 +1,17 @@
 'use strict';
 
 angular.module('transmissionUi')
-  .controller('TransmissionCtrl', function ($http) {
+  .controller('TransmissionCtrl', function ($http, Storage, Alerts) {
 
     var vm = this;
 
     var transmissionSettings = {};
 
-    if (localStorage.getItem('transmissionUi')) {
-      transmissionSettings = JSON.parse(localStorage.getItem('transmissionUi'));
-    }
+    transmissionSettings = JSON.parse(Storage.getStorage());
 
     var submit = function () {
-      localStorage.setItem('transmissionUi', JSON.stringify(vm.transmissionSettings));
+      var result = Storage.setStorage(vm.transmissionSettings);
+      Alerts.add('info', result);
     };
 
     angular.extend(vm, {

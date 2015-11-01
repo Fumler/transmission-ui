@@ -25,7 +25,7 @@ module.exports = function () {
     gulp.src('client/index.html')
       .pipe(inject(gulp.src(bowerFiles(), { read: false }), {
         name: 'bower',
-        relative: 'true',
+        relative: 'false',
         ignorePath: toExclude
       }))
       .pipe(gulp.dest('client'));

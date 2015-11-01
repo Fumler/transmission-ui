@@ -3,14 +3,11 @@
 
 <head>
 
-  <base href="/">
-
   <title>transmissionUi</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- build:css app.css -->
@@ -25,7 +22,7 @@
 
 </head>
 
-<body>
+<body ng-controller="BodyCtrl">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
@@ -36,14 +33,18 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Title</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="/">Torrents</a>
-      <a class="mdl-navigation__link" href="/transmission">Server settings</a>
+      <a class="mdl-navigation__link" href="#/">Torrents</a>
+      <a class="mdl-navigation__link" href="#/transmission">Server settings</a>
     </nav>
   </div>
 
   <main class="mdl-layout__content">
+
     <div class="page-content">
-      <div ng-view></div>
+      <div ng-repeat="alert in alerts" class="alert">
+        <div class="{{ alert.type }}" ng-click="alert.close()" >{{ alert.msg }}</div>
+      </div>
+      <div ng-view class="fade-in"></div>
     </div>
   </main>
 </div>
@@ -60,18 +61,24 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/material-design-lite/material.min.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
   <!-- endinject -->
 
   <!-- inject:js -->
   <script src="app.js"></script>
-  <script src="directives/progress-bar/progress-bar.directive.js"></script>
-  <script src="directives/search-bar/search-bar.directive.js"></script>
-  <script src="directives/toggle-item/toggle-item.directive.js"></script>
-  <script src="filters/bytes/bytes.js"></script>
-  <script src="views/home/home.controller.js"></script>
-  <script src="views/home/home.js"></script>
-  <script src="views/transmission/transmission.controller.js"></script>
   <script src="views/transmission/transmission.js"></script>
+  <script src="views/transmission/transmission.controller.js"></script>
+  <script src="views/home/home.js"></script>
+  <script src="views/home/home.controller.js"></script>
+  <script src="services/torrents/torrents.js"></script>
+  <script src="services/storage/storage.js"></script>
+  <script src="services/alerts/alerts.js"></script>
+  <script src="filters/moments/moments.js"></script>
+  <script src="filters/bytes/bytes.js"></script>
+  <script src="directives/toggle-item/toggle-item.directive.js"></script>
+  <script src="directives/search-bar/search-bar.directive.js"></script>
+  <script src="directives/progress-bar/progress-bar.directive.js"></script>
   <!-- endinject -->
 
   <!-- endbuild -->

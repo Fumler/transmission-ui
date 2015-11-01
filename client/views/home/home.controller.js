@@ -1,40 +1,21 @@
 'use strict';
 
 angular.module('transmissionUi')
-    .controller('HomeCtrl', function ($http) {
+    .controller('HomeCtrl', function ($http, Storage, Alerts, Torrents) {
 
         var vm = this;
-
-        if (localStorage.getItem('transmissionUi')) {
-          $http.post('/api/torrent/connect', JSON.parse(localStorage.getItem('transmissionUi')))
-            .success(function(data) {
-              console.log("[HOME] Connecting to transmission!");
-              console.log("DATA: " + data);
-
-              if (isNaN(data)) {
-                console.log('Did not connect');
-              } else {
-                console.log('Connected');
-              }
-
-            });
-        } else {
-          alert('Add transmission settings plx');
-        }
-
-
+        console.log('test');
 
         var torrents = {};
-
-        $http.get('/api/torrent/get')
-          .success(function(data) {
-            vm.torrents = data;
-          });
-
-
+        Torrents.getTorrents(function(error, result) {
+          if (error) {
+            Alerts.add('danger', 'Could not fetch torrents!');
+          } else {
+            vm.torrents = result.torrents;
+          }
+        });
 
         angular.extend(vm, {
           torrents: torrents,
-
         });
     });

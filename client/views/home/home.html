@@ -1,7 +1,7 @@
+<div id="topLoad" class="fade-in-out mdl-progress mdl-js-progress mdl-progress__indeterminate" ng-if="vm.loading"></div>
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
   <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-
       <div class="subheader">
         Last Week
       </div>
@@ -17,7 +17,7 @@
           <div class="list-item-info">
             <ul>
               <li>{{ torrent.sizeWhenDone | bytes:1}} </li>
-              <li>{{ torrent.addedDate * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' }} added</li>
+              <li>{{ torrent.addedDate * 1000 | moments}}</li>
               <li>{{ torrent.leechers }} leechers</li>
             </ul>
 
