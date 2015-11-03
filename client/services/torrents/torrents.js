@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('transmissionUi')
-  .factory('Torrents', function($http, Storage) {
+  .factory('Torrents', function($http, $timeout, Storage) {
     var self = this;
 
     self.connect = function(opts, cb) {
@@ -16,9 +16,9 @@ angular.module('transmissionUi')
         })
         .then(function(res) {
           if (res.status === 200) {
-            console.log(res.data);
             if (res.data.result === 'success') {
               cb(null, res.data.arguments);
+
             } else {
               var error = new Error(res.data.result);
               error.result = res.data;
@@ -33,7 +33,7 @@ angular.module('transmissionUi')
           } else {
             var error = new Error('Status code mismatch');
             error.result = res.data;
-            cb(error);
+            cb(error, null);
           }
         });
     };
@@ -47,7 +47,6 @@ angular.module('transmissionUi')
       };
 
       self.connect(params, cb);
-
     };
 
 

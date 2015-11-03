@@ -1,1 +1,1 @@
-<div id="p{{ torrent.id }}" class="mdl-progress mdl-js-progress"></div>
+<div id="p{{ torrent.id }}" progress="{{ torrent.percentDone * 100 }}" torrent-id="{{ torrent.id }}" class="mdl-progress mdl-js-progress"></div>

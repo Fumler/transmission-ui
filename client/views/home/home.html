@@ -2,36 +2,40 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
   <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-      <div class="subheader">
+    <!-- <div class="subheader">
         Last Week
-      </div>
-
-      <div class="list-item" ng-repeat="torrent in vm.torrents | orderBy: '-addedDate' track by torrent.id">
-          <header toggle-item="active">
-            <h2>{{ torrent.name }}</h2>
-            <div class="actions">
-              <p><i class="material-icons md-24 shaded">done</i> <i class="material-icons md-24 shaded">clear</i></p>
-            </div>
-          </header>
-
-          <div class="list-item-info">
-            <ul>
-              <li>{{ torrent.sizeWhenDone | bytes:1}} </li>
-              <li>{{ torrent.addedDate * 1000 | moments}}</li>
-              <li>{{ torrent.leechers }} leechers</li>
-            </ul>
-
+      </div> -->
+    <div id="scroller" infinite-scroll="vm.scrollHandler()">
+      <div class="list-item" ng-repeat="torrent in vm.torrents | orderBy: '-addedDate' | filter: { name:query } | limitTo: vm.limit  track by torrent.id">
+        <header toggle-item="active">
+          <h2>{{ ::torrent.name }}</h2>
+          <div class="actions">
+            <p><i class="material-icons md-24 shaded">done</i> <i class="material-icons md-24 shaded">clear</i></p>
           </div>
+        </header>
 
-          <progress-bar torrent-id="{{ torrent.id }}"></progress-bar>
+        <div class="list-item-info">
+          <ul>
+            <li>{{ ::torrent.sizeWhenDone | bytes:1:false}} </li>
+            <li>{{ ::torrent.addedDate * 1000 | moments}}</li>
+            <li>{{ torrent.trackerStats[0].seederCount }} peers</li>
+            <li>{{ torrent.rateDownload | bytes:1:true}}</li>
+          </ul>
 
-          <div class="list-item-details">
-            <div class="list-item-table">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </div>
+        </div>
+
+        <progress-bar ng-if="torrent.percentDone != 1" torrent-id="{{ ::torrent.id }}" progress="{{ torrent.percentDone * 100}}"></progress-bar>
+
+        <div class="list-item-details">
+          <div class="list-item-table">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </div>
+        </div>
 
       </div>
+    </div>
 
 
 
